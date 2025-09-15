@@ -1,0 +1,19 @@
+on:
+  push:
+    branches:
+      - main
+
+env:
+  GLOBAL_ENV_VAR: red-bus
+
+jobs:
+  context-job:
+    runs-on: ubuntu-latest
+    env:
+      JOB_ENV_VAR: ultradelux
+    steps:
+      - name: Steps example
+        env:
+          STEP_VAR: pallevelugu
+        run: echo "${{ env.GLOBAL_ENV_VAR }} ${{ env.JOB_ENV_VAR }} ${{ env.STEP_VAR }}"
+ 
