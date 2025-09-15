@@ -1,19 +1,25 @@
 on:
-  push:
-    branches:
-      - main
-
+    push:
+      branches:
+        - main
 env:
-  GLOBAL_ENV_VAR: red-bus
+    GLOBAL_ENV_VAR: learning thoughts global
+    ORG_NAME: xyz limited
 
 jobs:
-  context-job:
-    runs-on: ubuntu-latest
-    env:
-      JOB_ENV_VAR: ultradelux
-    steps:
-      - name: Steps example
+    context-job:
+        runs-on: ubuntu-latest
         env:
-          STEP_VAR: pallevelugu
-        run: echo "${{ env.GLOBAL_ENV_VAR }} ${{ env.JOB_ENV_VAR }} ${{ env.STEP_VAR }}"
- 
+            JOB_ENV_VAR: learning thoughts job
+            ORG_NAME: abc limited
+        steps:
+            - name: steps example
+              env:
+                STEP_VAR: learning thoughts step
+
+              run: echo '${{ env.GLOBAL_ENV_VAR }}  ${{ env.JOB_ENV_VAR }}  ${{ env.STEP_VAR }}'
+            - name: same environment
+              env:
+                ORG_NAME: 123 limited
+              run: echo '${{ env.ORG_NAME }}'
+
